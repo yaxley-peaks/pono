@@ -1,8 +1,8 @@
 module Main where
 
-import Control.Monad
-import Data.Char
-import Data.List
+import Control.Monad ( forever )
+import Data.Char ( isDigit )
+import Data.List ( partition )
 import System.IO (BufferMode (NoBuffering), hSetBuffering, stdout)
 
 data Token = Op Char | Num String deriving (Show)
@@ -30,7 +30,7 @@ solve (a : _) [] = error "Too many numbers"
 main :: IO ()
 main =
   putStrLn "Welcome to this arbitrary polish notation solver. Please enjoy your stay."
-    >> putStrLn "Please input 1 expression on 1 line"
+    >> putStrLn "Please input 1 expression per line"
     >> putStrLn "Press ctrl + C to exit"
     >> putStrLn "( ^_^)"
     >> go
